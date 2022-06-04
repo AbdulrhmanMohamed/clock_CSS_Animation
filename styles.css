@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clock-bg: #00A99E;
+    --border: #67D2C8;
+    --arrows-color: #262626;
+}
+
+.clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--clock-bg);
+}
+
+.clock {
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: 50%;
+    border: 20px solid var(--border);
+    position: relative;
+}
+
+.twelve,
+.six {
+    width: 5px;
+    height: 15px;
+}
+
+.twelve,
+.six,
+.three,
+.nine,
+.center {
+    position: absolute;
+    background: var(--arrows-color);
+}
+
+.twelve {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.six {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+.three,
+.nine {
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 5px;
+    width: 15px;
+}
+
+.three {
+    right: 0;
+}
+
+.nine {
+    left: 0;
+}
+
+.center {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.hours,
+.minutes,
+.seconds,
+.center {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    transform: rotate(0deg) translate(-50%, -50%);
+}
+
+.center {
+    transform: translate(0);
+}
+
+.seconds {
+    width: 3px;
+    height: 60px;
+    background: #f00;
+    animation: clock_time 60s linear infinite;
+}
+
+.minutes {
+    width: 5px;
+    height: 40px;
+    background: #0f0;
+    animation: clock_time 3600s infinite linear;
+}
+
+.hours {
+    width: 5px;
+    height: 35px;
+    background: var(--arrows-color);
+    animation: clock_time 216000 infinite linear;
+}
+
+@keyframes clock_time {
+    to {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
